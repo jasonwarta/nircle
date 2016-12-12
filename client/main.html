@@ -1,0 +1,104 @@
+<head>
+  <title>nircle</title>
+</head>
+
+<body>
+  <h2>Add A Game</h2>
+  {{> AddGames}}
+  <br>
+  <h2>Games</h2>
+  {{> Games}}
+  <br>
+  <h2>Add A Group</h2>
+  {{> AddGroup}}
+  <br>
+  <h2>Groups</h2>
+  {{> Groups}}
+  <br>
+  <h2>Add A Player</h2>
+  {{> AddPlayer}}
+  <br>
+  <h2>Players</h2>
+  {{> Players}}
+</body>
+
+<template name="AddGames">
+  {{> quickForm collection="Games" id="insertGameForm" type="insert" class="new-game-form"}}
+</template>
+
+<template name="Games">
+  <table>
+    <tr>
+      <th>Game</th>
+      <th>Category</th>
+      <th>Genre</th>
+    </tr>
+    {{#each game}}
+      <tr>
+        <td>{{name}}</td>
+        <td>{{category}}</td>
+        <td>{{genre}}</td>
+      </tr>
+    {{/each}}
+  </table>
+</template>
+
+<template name="AddGroup">
+  {{> quickForm collection="Groups" id="insertGroupForm" type="insert" class="new-group-form"}}
+</template>
+
+<template name="Groups">
+  <table>
+    <tr>
+      <th>Date Registered</th>
+      <th>Group</th>
+      <th>GM</th>
+      <th>Games</th>
+      <th>Members</th>
+    </tr>
+    {{#each group}}
+      <tr>
+        <td>{{registered}}</td>
+        <td>{{name}}</td>
+        <td>{{gm}}</td>
+        <td>{{games}}</td>
+        <td>
+          {{#each member name}}
+            {{username}} 
+          {{/each}}
+        </td>
+      </tr>
+    {{/each}}
+  </table>
+</template>
+
+<template name="AddPlayer">
+  {{> quickForm collection="Players" id="insertPlayerForm" type="insert" class="new-player-form"}}
+</template>
+
+<template name="Players">
+  <table>
+    <tr>
+      <th>Date Registered</th>
+      <th>Username</th>
+      <th>Location</th>
+      <th>Gender</th>
+      <th>Age</th>
+      <th>Favorite Games</th>
+      <th>Groups</th>
+    </tr>
+    {{#each player}}
+      <tr>
+        <td>{{registered}}</td>
+        <td>{{username}}</td>
+        <td>{{location}}</td>
+        <td>{{gender}}</td>
+        <td>{{age}}</td>
+        <td>{{favorites}}</td>
+        <td>{{groups}}</td>
+      </tr>
+    {{/each}}
+  </table>
+</template>
+
+
